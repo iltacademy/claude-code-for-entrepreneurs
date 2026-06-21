@@ -1,5 +1,5 @@
 # We're Looking for Beta Testers
-## Claude Code for Entrepreneurs — Early Access
+## Claude Code for Builders — Early Access
 
 **From: Nick Tietz, ILT Academy**
 
@@ -7,7 +7,7 @@
 
 We just built something we've never seen anywhere else, and we want to put it in the hands of real founders before we launch it publicly.
 
-**Claude Code for Entrepreneurs** is a free interactive course that teaches founders to use AI as a real working tool — not a chatbot.
+**Claude Code for Builders** is a free interactive course that teaches founders to use AI as a real working tool — not a chatbot.
 
 The course runs inside Claude Code itself. It knows your business. It reviews your work from three perspectives simultaneously. And by the time you finish, you've produced five real deliverables: a lean canvas, a customer insights doc, a 90-day financial model, a custom AI team, and a 5-minute pitch.
 

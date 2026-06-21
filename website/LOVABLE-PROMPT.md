@@ -1,4 +1,4 @@
-# Lovable Build Prompt — Claude Code for Entrepreneurs
+# Lovable Build Prompt — Claude Code for Builders
 
 Paste this into Lovable to build the landing page for iltacademy.io/learn.
 
@@ -6,7 +6,7 @@ Paste this into Lovable to build the landing page for iltacademy.io/learn.
 
 ## PROMPT
 
-Build a single landing page for a free course called **"Claude Code for Entrepreneurs"** by ILT Academy. The page will live at iltacademy.io/learn.
+Build a single landing page for a free course called **"Claude Code for Builders"** by ILT Academy. The page will live at iltacademy.io/learn.
 
 ---
 
@@ -42,7 +42,7 @@ Build a single landing page for a free course called **"Claude Code for Entrepre
 `FREE COURSE · ILT ACADEMY`
 
 **Headline** (large, white, bold, ~56px):
-`Claude Code for Entrepreneurs`
+`Claude Code for Builders`
 
 **Subheadline** (medium, light gray, ~22px, max-width 600px centered):
 `The first AI course built inside the tool itself. Learn to use Claude Code as your thinking partner — and produce your lean canvas, financial model, and 5-minute pitch along the way.`
@@ -350,8 +350,8 @@ You're in. Here's your course.
 Check your email — we'll send you the link too.
 ```
 
-- "Download Course Materials" button: Electric Coral background, white text, links to `https://github.com/iltacademy/claude-code-for-entrepreneurs/releases/latest/download/complete-course.zip`
-- "View on GitHub" button: dark outline, links to `https://github.com/iltacademy/claude-code-for-entrepreneurs`
+- "Download Course Materials" button: Electric Coral background, white text, links to `https://github.com/iltacademy/claude-code-for-builders/releases/latest/download/complete-course.zip`
+- "View on GitHub" button: dark outline, links to `https://github.com/iltacademy/claude-code-for-builders`
 
 **Below the form container, small white text:**
 `No spam. We'll send you updates about new modules and ILT Academy programs.`
@@ -408,5 +408,5 @@ This course is part of ILT 2.5 — our AI-enhanced education track. It's built t
 - All CTAs in the hero and body scroll to or link to the form section (Section 7)
 - The form success state replaces the form (don't redirect to a new page)
 - Form data should be captured — connect to a webhook, Supabase table, or leave a TODO comment for backend integration
-- The download zip URL follows the pattern: `https://github.com/iltacademy/claude-code-for-entrepreneurs/releases/latest/download/complete-course.zip`
-- The GitHub repo URL: `https://github.com/iltacademy/claude-code-for-entrepreneurs`
+- The download zip URL follows the pattern: `https://github.com/iltacademy/claude-code-for-builders/releases/latest/download/complete-course.zip`
+- The GitHub repo URL: `https://github.com/iltacademy/claude-code-for-builders`

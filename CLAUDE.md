@@ -1,6 +1,6 @@
-# CLAUDE.md — Claude Code for Entrepreneurs
+# CLAUDE.md — Claude Code for Builders
 
-This is the ILT Academy "Claude Code for Entrepreneurs" course repository.
+This is the ILT Academy "Claude Code for Builders" course repository.
 
 ## What This Is
 

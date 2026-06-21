@@ -52,7 +52,7 @@ jobs:
           tag_name: ${{ steps.version.outputs.VERSION }}
           name: ${{ steps.version.outputs.VERSION }} — Course Materials
           body: |
-            ## Claude Code for Entrepreneurs — ${{ steps.version.outputs.VERSION }}
+            ## Claude Code for Builders — ${{ steps.version.outputs.VERSION }}
 
             Complete course materials. Download the zip, extract it, open Claude Code inside the folder, and type `/start-0-0` to begin.
 

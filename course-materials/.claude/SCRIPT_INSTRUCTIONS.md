@@ -1,6 +1,6 @@
 # Script Instructions for Claude Code Teaching Scripts
 
-**Purpose:** Critical rules for Claude when teaching interactive modules in the ILT Academy "Claude Code for Entrepreneurs" course.
+**Purpose:** Critical rules for Claude when teaching interactive modules in the ILT Academy "Claude Code for Builders" course.
 
 ---
 

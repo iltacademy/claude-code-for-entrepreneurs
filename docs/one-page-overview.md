@@ -1,4 +1,4 @@
-# Claude Code for Entrepreneurs
+# Claude Code for Builders
 ## One-Page Overview
 **ILT Academy — Free Course**
 
@@ -6,7 +6,7 @@
 
 ### What It Is
 
-Claude Code for Entrepreneurs is a free, interactive AI course built inside Claude Code — the terminal-based AI tool from Anthropic. Instead of watching videos about AI, you use the tool to build real deliverables for your real business.
+Claude Code for Builders is a free, interactive AI course built inside Claude Code — the terminal-based AI tool from Anthropic. Instead of watching videos about AI, you use the tool to build real deliverables for your real business.
 
 The course has 10 modules and takes 4–6 hours. When you finish, you'll have a lean canvas, a 90-day financial model, and a 5-minute pitch — built on your actual business, not a case study.
 
@@ -95,5 +95,5 @@ And unlike every other AI course: there's no fictional practice company. From th
 ILT Academy has trained 1,200+ founders across 55 cohorts since 2020. This course is part of ILT 2.5 — our AI-enhanced education track. It's built to give every founder, regardless of technical background, an unfair advantage.
 
 **Free. No application. Starts now.**
-github.com/iltacademy/claude-code-for-entrepreneurs
+github.com/iltacademy/claude-code-for-builders
 iltacademy.io/learn

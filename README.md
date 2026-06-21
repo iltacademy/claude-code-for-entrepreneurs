@@ -1,4 +1,4 @@
-# Claude Code for Entrepreneurs
+# Claude Code for Builders
 
 **Free course by ILT Academy** — Learn to use Claude Code as a thinking partner, co-author, and research tool for your startup.
 
@@ -36,8 +36,8 @@ Not practice files. Your actual business.
 npm install -g @anthropic-ai/claude-code
 
 # 2. Clone this repo
-git clone https://github.com/iltacademy/claude-code-for-entrepreneurs.git
-cd claude-code-for-entrepreneurs/course-materials
+git clone https://github.com/iltacademy/claude-code-for-builders.git
+cd claude-code-for-builders/course-materials
 
 # 3. Open Claude Code
 claude

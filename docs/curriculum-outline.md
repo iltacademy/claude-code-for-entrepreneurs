@@ -1,5 +1,5 @@
 # Curriculum Outline
-## Claude Code for Entrepreneurs
+## Claude Code for Builders
 **ILT Academy — AI Education Track (ILT 2.5)**
 
 ---
@@ -317,6 +317,6 @@ Edit `course-structure.json`. One file change cascades across all slash commands
 
 ---
 
-*Claude Code for Entrepreneurs — ILT Academy*
+*Claude Code for Builders — ILT Academy*
 *ILT 2.5 AI Education Track*
-*github.com/iltacademy/claude-code-for-entrepreneurs*
+*github.com/iltacademy/claude-code-for-builders*
