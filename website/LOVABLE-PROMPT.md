@@ -170,22 +170,22 @@ Every deliverable you create here is something you'll use at Demo Day.
 
 ---
 
-#### 7. Form Section / Lead Capture (Electric Coral background `#F96B61`)
+#### 7. Form Section / Lead Capture (dark background `#1D1D1D`)
 
-**Heading (white, bold, large):**
+**Section heading (white, bold, ~48px):**
 `Get the Course — Free`
 
-**Subtext (white, slightly smaller):**
-`Enter your info below. You'll get instant access to the course materials on GitHub.`
+**Subtext (muted gray `#888888`, ~18px):**
+`Enter your info and get instant access to the course materials on GitHub.`
+
+**Layout:** Center the form card on the page. Max-width 680px. The card itself is a slightly lighter dark (`#252525`), rounded corners (12px), 1px border (`#333333`), padding 40px.
 
 **Form implementation: HubSpot Embed**
 
-Use the HubSpot Forms API to embed the form inside a React component. Do NOT build a custom form — use HubSpot so lead data flows directly into our CRM.
-
-Create a `HubSpotForm` component that loads the HubSpot embed script and renders the form inside a target div:
+Use the HubSpot Forms API. Do NOT build a custom form — use HubSpot so lead data flows directly into ILT Academy's CRM.
 
 ```jsx
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export function HubSpotForm({ onSubmitted }) {
   useEffect(() => {
@@ -214,41 +214,126 @@ export function HubSpotForm({ onSubmitted }) {
 }
 ```
 
-**HubSpot form should be configured with these fields:**
-- First Name (required)
-- Last Name (required)
-- Email (required)
-- Phone Number (optional)
+**HubSpot form fields (configure in HubSpot):**
+- First Name + Last Name (side by side, two columns)
+- Email + Phone (side by side, two columns)
 
-**Style the HubSpot form to match the page** using CSS overrides in a `<style>` block or global CSS:
+**CSS overrides — make it match iltacademy.io exactly:**
+
+Add this to the page's global CSS or a `<style>` tag. The goal: dark inputs, uppercase muted labels, white full-width submit button. No HubSpot default styling should be visible.
+
 ```css
+/* Reset HubSpot defaults */
+#hubspot-form-container .hs-form,
+#hubspot-form-container .hs-form * {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Two-column fieldset layout */
+#hubspot-form-container .hs-form fieldset {
+  max-width: 100% !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Full-width fields (phone, any solo field) */
+#hubspot-form-container .hs-form fieldset.form-columns-1 {
+  grid-template-columns: 1fr;
+}
+
+/* Field wrapper */
+#hubspot-form-container .hs-form-field {
+  margin-bottom: 0;
+}
+
+/* Labels — uppercase, small, muted */
+#hubspot-form-container .hs-form label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+/* Inputs — dark background, subtle border */
 #hubspot-form-container .hs-form input[type="text"],
 #hubspot-form-container .hs-form input[type="email"],
-#hubspot-form-container .hs-form input[type="tel"] {
-  background: white;
+#hubspot-form-container .hs-form input[type="tel"],
+#hubspot-form-container .hs-form input[type="number"],
+#hubspot-form-container .hs-form select,
+#hubspot-form-container .hs-form textarea {
+  width: 100%;
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+#hubspot-form-container .hs-form input::placeholder,
+#hubspot-form-container .hs-form textarea::placeholder {
+  color: #555555;
+}
+
+#hubspot-form-container .hs-form input:focus,
+#hubspot-form-container .hs-form textarea:focus {
+  border-color: #F96B61;
+}
+
+/* Hide HubSpot's error messages styling — restyle them */
+#hubspot-form-container .hs-error-msgs {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+#hubspot-form-container .hs-error-msgs li label {
+  color: #F96B61;
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Submit button — white bg, dark text, full width, uppercase */
+#hubspot-form-container .hs-form .hs-submit,
+#hubspot-form-container .hs-submit {
+  margin-top: 24px;
+}
+
+#hubspot-form-container .hs-form input[type="submit"],
+#hubspot-form-container .hs-button.primary {
+  width: 100%;
+  background: #FFFFFF;
   color: #1D1D1D;
   border: none;
-  border-radius: 6px;
-  padding: 12px 16px;
-  font-size: 16px;
-  width: 100%;
-}
-#hubspot-form-container .hs-form input[type="submit"],
-#hubspot-form-container .hs-submit input {
-  background: #1D1D1D;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 14px 28px;
-  font-size: 16px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  width: 100%;
+  transition: background 0.2s, color 0.2s;
 }
-#hubspot-form-container .hs-form label {
-  color: white;
-  font-weight: 600;
-  margin-bottom: 4px;
+
+#hubspot-form-container .hs-form input[type="submit"]:hover,
+#hubspot-form-container .hs-button.primary:hover {
+  background: #F96B61;
+  color: #FFFFFF;
+}
+
+/* Hide HubSpot branding / GDPR boilerplate if present */
+#hubspot-form-container .hs-richtext p,
+#hubspot-form-container .legal-consent-container {
+  display: none;
 }
 ```
 
