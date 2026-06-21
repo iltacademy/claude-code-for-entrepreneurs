@@ -185,21 +185,23 @@ Use the HubSpot Forms API to embed the form inside a React component. Do NOT bui
 Create a `HubSpotForm` component that loads the HubSpot embed script and renders the form inside a target div:
 
 ```jsx
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-export function HubSpotForm() {
+export function HubSpotForm({ onSubmitted }) {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/v2.js';
+    script.src = '//js.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
     script.async = true;
     script.onload = () => {
       if (window.hbspt) {
         window.hbspt.forms.create({
-          portalId: 'HUBSPOT_PORTAL_ID',
-          formId: 'HUBSPOT_FORM_ID',
+          portalId: '44521993',
+          formId: 'f0f43008-e985-42a1-a11c-38f2b573e518',
+          region: 'na1',
           target: '#hubspot-form-container',
           onFormSubmitted: () => {
-            document.getElementById('form-section').classList.add('submitted');
+            if (onSubmitted) onSubmitted();
           }
         });
       }
@@ -211,8 +213,6 @@ export function HubSpotForm() {
   return <div id="hubspot-form-container" />;
 }
 ```
-
-**Replace `HUBSPOT_PORTAL_ID` and `HUBSPOT_FORM_ID`** with the real values from HubSpot before deploying. (ILT Academy portal — Kenzie Kitzman is the HubSpot owner.)
 
 **HubSpot form should be configured with these fields:**
 - First Name (required)
