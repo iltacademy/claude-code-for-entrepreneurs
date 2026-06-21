@@ -1,0 +1,75 @@
+name: Create Course Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.1)'
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create course zip
+        run: |
+          mkdir -p releases
+          cd course-materials
+          zip -r ../releases/complete-course.zip . \
+            -x "*.DS_Store" \
+            -x "__pycache__/*" \
+            -x "*.pyc" \
+            -x ".venv/*" \
+            -x ".env" \
+            -x ".env.local"
+          cd ..
+          echo "Zip created:"
+          ls -lh releases/complete-course.zip
+          echo "Contents:"
+          unzip -l releases/complete-course.zip | head -40
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          name: ${{ steps.version.outputs.VERSION }} — Course Materials
+          body: |
+            ## Claude Code for Entrepreneurs — ${{ steps.version.outputs.VERSION }}
+
+            Complete course materials. Download the zip, extract it, open Claude Code inside the folder, and type `/start-0-0` to begin.
+
+            ### What's included
+            - All 10 lesson modules (Setup + Fundamentals + Advanced)
+            - 3 built-in AI agents (Investor, Customer, Competitor)
+            - FOUNDER.md template
+            - course-structure.json
+
+            ### How to start
+            ```bash
+            # Extract the zip, then:
+            cd complete-course
+            claude
+            # Then type: /start-0-0
+            ```
+
+            Requires Claude Pro or Max ($20/month at claude.ai).
+          files: releases/complete-course.zip
+          fail_on_unmatched_files: true
