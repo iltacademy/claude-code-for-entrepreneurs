@@ -178,24 +178,98 @@ Every deliverable you create here is something you'll use at Demo Day.
 **Subtext (white, slightly smaller):**
 `Enter your info below. You'll get instant access to the course materials on GitHub.`
 
-**Form fields (white inputs, dark text):**
+**Form implementation: HubSpot Embed**
+
+Use the HubSpot Forms API to embed the form inside a React component. Do NOT build a custom form — use HubSpot so lead data flows directly into our CRM.
+
+Create a `HubSpotForm` component that loads the HubSpot embed script and renders the form inside a target div:
+
+```jsx
+import { useEffect } from 'react';
+
+export function HubSpotForm() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = '//js.hsforms.net/forms/v2.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalId: 'HUBSPOT_PORTAL_ID',
+          formId: 'HUBSPOT_FORM_ID',
+          target: '#hubspot-form-container',
+          onFormSubmitted: () => {
+            document.getElementById('form-section').classList.add('submitted');
+          }
+        });
+      }
+    };
+    document.body.appendChild(script);
+    return () => document.body.removeChild(script);
+  }, []);
+
+  return <div id="hubspot-form-container" />;
+}
+```
+
+**Replace `HUBSPOT_PORTAL_ID` and `HUBSPOT_FORM_ID`** with the real values from HubSpot before deploying. (ILT Academy portal — Kenzie Kitzman is the HubSpot owner.)
+
+**HubSpot form should be configured with these fields:**
 - First Name (required)
 - Last Name (required)
-- Email Address (required)
-- Phone Number (optional but shown)
+- Email (required)
+- Phone Number (optional)
 
-**Submit button** (dark `#1D1D1D` background, white text):
-`Get Instant Access →`
+**Style the HubSpot form to match the page** using CSS overrides in a `<style>` block or global CSS:
+```css
+#hubspot-form-container .hs-form input[type="text"],
+#hubspot-form-container .hs-form input[type="email"],
+#hubspot-form-container .hs-form input[type="tel"] {
+  background: white;
+  color: #1D1D1D;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 100%;
+}
+#hubspot-form-container .hs-form input[type="submit"],
+#hubspot-form-container .hs-submit input {
+  background: #1D1D1D;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
+#hubspot-form-container .hs-form label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+```
 
-**On form submit:**
-- Show a success message (white card, dark text):
-  > "You're in. Here's your course."
-  > [Download Course Materials button → links to https://github.com/iltacademy/claude-code-for-entrepreneurs/releases/latest/download/complete-course.zip]
-  > [View on GitHub button → links to https://github.com/iltacademy/claude-code-for-entrepreneurs]
-  > Small text: "Check your email — we'll send you the link too."
+**After form submission (triggered by `onFormSubmitted` callback):**
 
-**Below the form, small white text:**
-`No spam. We'll occasionally send you updates about new modules and ILT Academy programs.`
+Replace the form with a success state (white card, dark text, centered, max-width 500px):
+
+```
+You're in. Here's your course.
+
+[Download Course Materials]   [View on GitHub]
+  ↓ direct .zip download         ↓ github.com/iltacademy/...
+
+Check your email — we'll send you the link too.
+```
+
+- "Download Course Materials" button: Electric Coral background, white text, links to `https://github.com/iltacademy/claude-code-for-entrepreneurs/releases/latest/download/complete-course.zip`
+- "View on GitHub" button: dark outline, links to `https://github.com/iltacademy/claude-code-for-entrepreneurs`
+
+**Below the form container, small white text:**
+`No spam. We'll send you updates about new modules and ILT Academy programs.`
 
 ---
 
