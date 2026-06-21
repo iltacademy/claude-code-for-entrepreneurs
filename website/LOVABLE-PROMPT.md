@@ -19,6 +19,8 @@ Build a single landing page for a free course called **"Claude Code for Builders
 - Light gray background sections: `#F5F5F5`
 - Muted text: `#6B6B6B`
 
+**Critical contrast rule:** Anywhere Electric Coral appears as a background, use WHITE text — never dark text on coral. Coral on dark backgrounds (like the dark card sections) is fine for text/accents.
+
 **Fonts:**
 - Headings: Roboto Bold or Roboto Black
 - Body: Roboto Regular
@@ -248,18 +250,18 @@ Add this to the page's global CSS or a `<style>` tag. The goal: dark inputs, upp
   margin-bottom: 0;
 }
 
-/* Labels — uppercase, small, muted */
+/* Labels — uppercase, small, readable on dark card */
 #hubspot-form-container .hs-form label {
   display: block;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #888888;
+  color: #BBBBBB;
   margin-bottom: 8px;
 }
 
-/* Inputs — dark background, subtle border */
+/* Inputs — dark background, visible border */
 #hubspot-form-container .hs-form input[type="text"],
 #hubspot-form-container .hs-form input[type="email"],
 #hubspot-form-container .hs-form input[type="tel"],
@@ -268,8 +270,8 @@ Add this to the page's global CSS or a `<style>` tag. The goal: dark inputs, upp
 #hubspot-form-container .hs-form textarea {
   width: 100%;
   background: #1A1A1A;
-  color: #FFFFFF;
-  border: 1px solid #333333;
+  color: #FFFFFF !important;
+  border: 1px solid #555555;
   border-radius: 8px;
   padding: 14px 16px;
   font-size: 15px;
@@ -280,7 +282,17 @@ Add this to the page's global CSS or a `<style>` tag. The goal: dark inputs, upp
 
 #hubspot-form-container .hs-form input::placeholder,
 #hubspot-form-container .hs-form textarea::placeholder {
-  color: #555555;
+  color: rgba(255,255,255,0.35);
+}
+
+/* Checkbox labels */
+#hubspot-form-container .hs-form .hs-form-booleancheckbox label,
+#hubspot-form-container .hs-form .inputs-list label {
+  color: #BBBBBB !important;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 #hubspot-form-container .hs-form input:focus,
