@@ -1,0 +1,164 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-06-21",
+  "course": {
+    "name": "Claude Code for Entrepreneurs",
+    "by": "ILT Academy",
+    "tagline": "Build your lean canvas, financial model, and pitch using AI as a thinking partner.",
+    "estimatedHours": "4-6",
+    "prerequisiteFile": "FOUNDER.md"
+  },
+  "levels": [
+    {
+      "id": "0",
+      "name": "Setup",
+      "description": "Build your FOUNDER.md and orient to the course",
+      "modules": [
+        {
+          "id": "0.0",
+          "title": "Setup",
+          "slug": "setup",
+          "path": "lesson-modules/0-setup/0.0-context/CLAUDE.md",
+          "command": "start-0-0",
+          "description": "Build your FOUNDER.md and orient to the course",
+          "estimatedMinutes": 20,
+          "deliverable": "FOUNDER.md"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Fundamentals",
+      "description": "Core Claude Code mechanics, applied to your real business",
+      "modules": [
+        {
+          "id": "1.1",
+          "title": "First Session",
+          "slug": "first-session",
+          "path": "lesson-modules/1-fundamentals/1.1-first-session/CLAUDE.md",
+          "command": "start-1-1",
+          "description": "Experience Claude working on your real business for the first time",
+          "estimatedMinutes": 25,
+          "deliverable": "notes/session-1-1-*.md"
+        },
+        {
+          "id": "1.2",
+          "title": "Visualizing Your Business",
+          "slug": "visualizing",
+          "path": "lesson-modules/1-fundamentals/1.2-visualizing/CLAUDE.md",
+          "command": "start-1-2",
+          "description": "Set up VS Code or Obsidian as a visual workspace alongside the terminal",
+          "estimatedMinutes": 15,
+          "deliverable": null
+        },
+        {
+          "id": "1.3",
+          "title": "Reading the Room",
+          "slug": "reading-the-room",
+          "path": "lesson-modules/1-fundamentals/1.3-reading-the-room/CLAUDE.md",
+          "command": "start-1-3",
+          "description": "Synthesize customer discovery interviews into a structured insights document",
+          "estimatedMinutes": 30,
+          "deliverable": "notes/customer-insights.md"
+        },
+        {
+          "id": "1.4",
+          "title": "Three Voices",
+          "slug": "three-voices",
+          "path": "lesson-modules/1-fundamentals/1.4-three-voices/CLAUDE.md",
+          "command": "start-1-4",
+          "description": "Run your lean canvas through the Investor, Customer, and Competitor agents simultaneously",
+          "estimatedMinutes": 25,
+          "deliverable": "canvas/lean-canvas-v2.md"
+        },
+        {
+          "id": "1.5",
+          "title": "Building Your Team",
+          "slug": "building-your-team",
+          "path": "lesson-modules/1-fundamentals/1.5-building-your-team/CLAUDE.md",
+          "command": "start-1-5",
+          "description": "Create a custom AI agent tuned to your specific business and industry",
+          "estimatedMinutes": 20,
+          "deliverable": ".claude/agents/[custom-agent].md"
+        },
+        {
+          "id": "1.6",
+          "title": "Permanent Memory",
+          "slug": "permanent-memory",
+          "path": "lesson-modules/1-fundamentals/1.6-permanent-memory/CLAUDE.md",
+          "command": "start-1-6",
+          "description": "Update FOUNDER.md with everything learned so Claude always knows where you are",
+          "estimatedMinutes": 20,
+          "deliverable": "FOUNDER.md (updated)"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Advanced Founder Work",
+      "description": "The core Sprint 1 deliverables — built with AI",
+      "modules": [
+        {
+          "id": "2.1",
+          "title": "The Lean Canvas",
+          "slug": "lean-canvas",
+          "path": "lesson-modules/2-advanced/2.1-lean-canvas/CLAUDE.md",
+          "command": "start-2-1",
+          "description": "Build your complete lean canvas section by section, with agent review",
+          "estimatedMinutes": 45,
+          "deliverable": "canvas/lean-canvas-final.md"
+        },
+        {
+          "id": "2.2",
+          "title": "The Numbers",
+          "slug": "the-numbers",
+          "path": "lesson-modules/2-advanced/2.2-the-numbers/CLAUDE.md",
+          "command": "start-2-2",
+          "description": "Build your 90-day financial model with AI as co-pilot",
+          "estimatedMinutes": 40,
+          "deliverable": "financials/proforma-90-day.md"
+        },
+        {
+          "id": "2.3",
+          "title": "The Pitch",
+          "slug": "the-pitch",
+          "path": "lesson-modules/2-advanced/2.3-the-pitch/CLAUDE.md",
+          "command": "start-2-3",
+          "description": "Draft and refine your 5-minute Founder Showcase pitch",
+          "estimatedMinutes": 45,
+          "deliverable": "pitch/5-min-pitch-v2.md"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "name": "investor",
+      "emoji": "💰",
+      "path": ".claude/agents/investor.md",
+      "role": "Business model stress-tester. Asks what a real investor asks."
+    },
+    {
+      "name": "customer",
+      "emoji": "🧑",
+      "path": ".claude/agents/customer.md",
+      "role": "End user advocate. Speaks from the perspective of your target customer."
+    },
+    {
+      "name": "competitor",
+      "emoji": "⚔️",
+      "path": ".claude/agents/competitor.md",
+      "role": "Competitive red-team. Maps the landscape and finds your gaps."
+    }
+  ],
+  "deliverables": {
+    "sprint1": [
+      "FOUNDER.md",
+      "notes/customer-insights.md",
+      "canvas/lean-canvas-final.md",
+      "financials/proforma-90-day.md",
+      "pitch/5-min-pitch-v2.md"
+    ],
+    "description": "These five files are the Sprint 1 deliverables. Produced with AI, owned by the founder."
+  }
+}
