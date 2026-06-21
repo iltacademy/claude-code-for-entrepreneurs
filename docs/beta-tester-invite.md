@@ -22,7 +22,7 @@ That's where you come in.
 - **Free access** to the full course (no cost, no application, no waitlist)
 - **Early adopter status** — your feedback shapes what this becomes
 - **Direct line to Nick** — a 30-minute debrief call after you finish
-- **First look at everything we build next** in the ILT 2.5 AI education track
+- **First look at everything we build next** in ILT Academy's AI education lineup
 - **Recognition** — if you're willing, your story becomes part of how we tell this to the world
 
 ---
@@ -126,5 +126,5 @@ nick@iltacademy.io
 ---
 
 *ILT Academy has trained 1,200+ founders across 55 cohorts since 2020.*
-*This course is part of ILT 2.5 — our AI-enhanced education track.*
+*Most AI education teaches prompting. This teaches thinking.*
 *Think Big. Start Small. Act Faster.*

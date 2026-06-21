@@ -92,7 +92,7 @@ And unlike every other AI course: there's no fictional practice company. From th
 
 ### Built by ILT Academy
 
-ILT Academy has trained 1,200+ founders across 55 cohorts since 2020. This course is part of ILT 2.5 — our AI-enhanced education track. It's built to give every founder, regardless of technical background, an unfair advantage.
+ILT Academy has trained 1,200+ founders across 55 cohorts since 2020. Most AI education teaches prompting. This teaches thinking. Every module is designed around how founders actually work — and what they actually need to move their business forward.
 
 **Free. No application. Starts now.**
 github.com/iltacademy/claude-code-for-builders

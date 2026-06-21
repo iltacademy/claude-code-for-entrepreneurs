@@ -395,7 +395,7 @@ Four simple checklist items with checkmark icons:
 **Body text (light gray):**
 ILT Academy has trained 1,200+ founders across 55 cohorts since 2020. We focus on underestimated entrepreneurs in underserved communities — BIPOC, Women, Veterans, Rural, and Native founders.
 
-This course is part of ILT 2.5 — our AI-enhanced education track. It's built to give every founder, regardless of technical background, an unfair advantage.
+Most AI education teaches prompting. This teaches thinking. Every module is designed around how founders actually work — and what they actually need to move their business forward.
 
 **Tagline below (Electric Coral, italic):**
 `"Talent is evenly distributed. Opportunity is not."`
