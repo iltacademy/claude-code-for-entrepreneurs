@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Code for Builders — ILT Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --coral: #F96B61;
+      --black: #1D1D1D;
+      --white: #FFFFFF;
+      --gray-100: #F5F5F5;
+      --gray-300: #DDDDDD;
+      --gray-500: #888888;
+      --gray-700: #444444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--black);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-svg {
+      height: 28px;
+      width: auto;
+    }
+
+    .header-badge {
+      background: var(--coral);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      padding: 48px 48px 56px;
+      border-bottom: 3px solid var(--coral);
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #AAAAAA;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+
+    /* ── BODY ── */
+    .body {
+      padding: 0 48px 48px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gray-100);
+    }
+
+    .section-accent {
+      width: 4px;
+      height: 22px;
+      background: var(--coral);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .deliverable-card {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 16px 14px;
+      border-top: 3px solid var(--coral);
+    }
+
+    .deliverable-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .deliverable-file {
+      font-family: 'Courier New', monospace;
+      font-size: 9.5px;
+      color: var(--coral);
+      font-weight: 600;
+      margin-bottom: 6px;
+      word-break: break-all;
+    }
+
+    .deliverable-desc {
+      font-size: 10.5px;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    /* ── MODULE TABLE ── */
+    .module-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .module-table thead tr {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .module-table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .module-table tbody tr {
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .module-table tbody tr:nth-child(even) {
+      background: var(--gray-100);
+    }
+
+    .module-table tbody tr.advanced {
+      border-left: 3px solid var(--coral);
+    }
+
+    .module-table tbody td {
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--black);
+      vertical-align: top;
+    }
+
+    .module-num {
+      font-weight: 700;
+      color: var(--coral);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .module-title {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .module-desc {
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+
+    .module-deliverable {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--coral);
+      background: rgba(249,107,97,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .module-time {
+      font-weight: 500;
+      color: var(--gray-700);
+      white-space: nowrap;
+      font-size: 11px;
+    }
+
+    .level-label {
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 14px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .level-label.advanced {
+      color: var(--coral);
+    }
+
+    /* ── AGENTS ── */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .agent-card {
+      border: 1px solid var(--gray-300);
+      border-radius: 8px;
+      padding: 18px 16px;
+      border-top: 3px solid var(--black);
+    }
+
+    .agent-card.investor { border-top-color: #E8A838; }
+    .agent-card.customer { border-top-color: #5BAD6F; }
+    .agent-card.competitor { border-top-color: #7B68C8; }
+
+    .agent-emoji {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .agent-name {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .agent-role {
+      font-size: 11px;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    /* ── OBJECTIVE BOX ── */
+    .objectives-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .objectives-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 12px;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    .obj-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--coral);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 48px;
+      background: var(--black);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      color: var(--white);
+      font-size: 11px;
+    }
+
+    .footer-left strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .footer-tagline {
+      color: var(--gray-500);
+      font-style: italic;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-url {
+      color: var(--coral);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .footer-sub {
+      color: var(--gray-500);
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { font-size: 11px; }
+      .header { padding: 20px 36px; }
+      .hero { padding: 36px 36px 44px; }
+      .body { padding: 0 36px 36px; }
+      .hero-title { font-size: 32px; }
+      .section { margin-top: 28px; }
+      .footer { padding: 18px 36px; margin-top: 32px; }
+      .deliverables-grid { grid-template-columns: repeat(5,1fr); }
+      a { text-decoration: none; color: inherit; }
+      @page {
+        margin: 0;
+        size: Letter;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <svg class="logo-svg" viewBox="0 0 300 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_50_2)">
+          <path d="M27.487 18.2595C24.7777 18.2595 22.5415 20.4722 22.5415 23.2262C22.5415 25.9802 24.7697 28.0736 27.487 28.0736C30.2041 28.0736 32.4323 25.8608 32.4323 23.2262C32.4323 20.5916 30.2602 18.2595 27.487 18.2595Z" fill="white"/>
+          <path d="M31.5332 32.8572H23.5098V62.2995H31.5332V32.8572Z" fill="white"/>
+          <path d="M43.9972 18.9756H35.9819V62.2994H43.9972V18.9756Z" fill="white"/>
+          <path d="M85.4992 39.8932C84.1448 17.6702 65.5173 0 42.7938 0C20.0704 0 0 19.0631 0 42.496C0 65.9289 19.1967 85 42.7938 85C56.4279 85 68.5791 78.6483 76.4181 68.7625H65.4852C59.3855 73.968 51.4664 77.128 42.7938 77.128C23.565 77.128 7.92716 61.591 7.92716 42.496C7.92716 23.4011 23.565 7.87199 42.7938 7.87199C62.0225 7.87199 76.2177 22.0241 77.5642 39.8932C77.6204 40.737 77.6605 41.5806 77.6605 42.4403V42.496C77.6043 48.9671 72.1379 54.2284 65.4611 54.2284H64.0264C61.1729 54.2284 58.8565 51.9281 58.8565 49.0945V39.9251H64.852V32.857H58.8885V24.0617H51.6587V28.1927C51.6587 30.8273 50.208 32.857 47.082 32.857H45.5751V39.9251H50.9293V49.0945C50.9293 56.2661 56.8046 62.1004 64.0264 62.1004H65.4611C67.8657 62.1004 70.1741 61.6865 72.3142 60.9144C80.017 58.1843 85.5558 50.957 85.5954 42.496V42.4642C85.5954 41.5966 85.5639 40.7449 85.5073 39.8853L85.4992 39.8932Z" fill="white"/>
+          <path d="M74.9443 76.547V80.431H73.8623V76.547H72.3714V75.5601H76.4351V76.547H74.9443Z" fill="white"/>
+          <path d="M81.1051 80.431V77.2475L79.7265 79.3329H79.7025L78.3319 77.2714V80.431H77.2738V75.5601H78.4361L79.7265 77.6215L81.017 75.5601H82.179V80.431H81.1051Z" fill="white"/>
+          <path d="M109.308 47.5661L115.576 46.6428C117.027 46.4358 117.492 45.7195 117.492 44.8439C117.492 43.045 116.097 41.5566 113.195 41.5566C110.294 41.5566 108.539 43.459 108.33 45.6717L102.222 44.3823C102.639 40.4263 106.31 36.0486 113.147 36.0486C121.227 36.0486 124.232 40.5696 124.232 45.6638V58.1045C124.232 59.4417 124.384 61.2406 124.545 62.1162H118.229C118.076 61.4475 117.973 60.0625 117.973 59.0835C116.682 61.0893 114.245 62.8404 110.462 62.8404C105.027 62.8404 101.71 59.187 101.71 55.2311C101.71 50.7021 105.076 48.1869 109.324 47.5661H109.308ZM117.492 51.8881V50.7578L111.745 51.6334C109.981 51.8881 108.586 52.8671 108.586 54.8172C108.586 56.3057 109.676 57.7464 111.897 57.7464C114.798 57.7464 117.492 56.3613 117.492 51.8881Z" fill="white"/>
+          <path d="M133.175 49.4765C133.175 54.0532 136.181 56.6242 139.7 56.6242C143.219 56.6242 144.982 54.3079 145.551 52.3578L151.611 54.3636C150.472 58.5822 146.481 62.8963 139.7 62.8963C132.189 62.8963 126.29 57.237 126.29 49.4765C126.29 41.7159 132.093 36.0566 139.491 36.0566C146.432 36.0566 150.368 40.323 151.45 44.5893L145.287 46.6429C144.661 44.5336 143.058 42.3765 139.644 42.3765C136.229 42.3765 133.168 44.8998 133.168 49.4765H133.175Z" fill="white"/>
+          <path d="M160.104 47.5661L166.371 46.6428C167.822 46.4358 168.287 45.7195 168.287 44.8439C168.287 43.045 166.893 41.5566 163.991 41.5566C161.089 41.5566 159.334 43.459 159.126 45.6717L153.018 44.3823C153.435 40.4263 157.106 36.0486 163.943 36.0486C172.022 36.0486 175.029 40.5696 175.029 45.6638V58.1045C175.029 59.4417 175.181 61.2406 175.341 62.1162H169.025C168.872 61.4475 168.768 60.0625 168.768 59.0835C167.478 61.0893 165.041 62.8404 161.258 62.8404C155.824 62.8404 152.505 59.187 152.505 55.2311C152.505 50.7021 155.871 48.1869 160.12 47.5661H160.104ZM168.287 51.8881V50.7578L162.54 51.6334C160.777 51.8881 159.382 52.8671 159.382 54.8172C159.382 56.3057 160.473 57.7464 162.693 57.7464C165.594 57.7464 168.287 56.3613 168.287 51.8881Z" fill="white"/>
+          <path d="M203.287 57.5474C203.287 59.2428 203.391 61.0974 203.495 62.1241H196.914C196.811 61.6067 196.658 60.373 196.658 59.1951C195.52 61.2008 192.931 62.745 189.508 62.745C182.263 62.745 177.077 57.0858 177.077 49.4287C177.077 41.7716 182.102 36.2158 189.3 36.2158C193.701 36.2158 195.776 38.0147 196.498 39.3519V24.9053H203.279V57.5554L203.287 57.5474ZM190.342 56.6241C193.861 56.6241 196.61 53.9497 196.61 49.3729C196.61 44.7962 193.869 42.3287 190.342 42.3287C186.815 42.3287 184.026 44.8997 184.026 49.4287C184.026 53.9576 186.719 56.6241 190.342 56.6241Z" fill="white"/>
+          <path d="M230.365 54.8731C229.067 59.2429 225.036 62.8963 218.767 62.8963C211.778 62.8963 205.614 57.9056 205.614 49.373C205.614 41.302 211.618 36.0566 218.142 36.0566C226.013 36.0566 230.727 41.0473 230.727 49.166C230.727 50.1451 230.622 51.1719 230.622 51.2753H212.395C212.548 54.6183 215.401 57.0381 218.816 57.0381C222.03 57.0381 223.785 55.4461 224.618 53.1776L230.365 54.8731ZM223.946 46.5951C223.841 44.072 222.182 41.6045 218.246 41.6045C214.671 41.6045 212.708 44.2789 212.548 46.5951H223.937H223.946Z" fill="white"/>
+          <path d="M233.056 62.1244V36.8211H239.629V39.9094C241.024 37.4419 244.286 36.1047 247.083 36.1047C250.554 36.1047 253.351 37.5931 254.642 40.3233C256.662 37.235 259.354 36.1047 262.721 36.1047C267.434 36.1047 271.938 38.9303 271.938 45.7198V62.1244H265.262V47.1128C265.262 44.3906 263.915 42.3291 260.757 42.3291C257.808 42.3291 256.044 44.5896 256.044 47.3197V62.1325H249.207V47.1207C249.207 44.3986 247.813 42.337 244.703 42.337C241.593 42.337 239.942 44.5498 239.942 47.3277V62.1404H233.056V62.1244Z" fill="white"/>
+          <path d="M276.131 72.0976L282.134 58.9324L271.313 36.8208H279.032L285.813 51.6336L292.081 36.8208H299.432L283.433 72.0976H276.131Z" fill="white"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_50_2">
+            <rect width="300" height="85" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="header-badge">ILT 2.5 · AI Education Track</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Free Course · Curriculum Overview</div>
+    <div class="hero-title">Claude Code for Builders</div>
+    <div class="hero-subtitle">
+      The first AI course built inside the tool itself. Founders learn Claude Code
+      by using it — on their real business — and walk away with five deliverables
+      they'll use at Founder Showcase and Demo Day.
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">10</div>
+        <div class="stat-label">Modules</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4–6 hrs</div>
+        <div class="stat-label">To Complete</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Real Deliverables</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$0</div>
+        <div class="stat-label">Course Cost</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEARNING OBJECTIVES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-accent"></div>
+        <div class="section-title">Learning Objectives</div>
+      </div>
+      <ul class="objectives-list">
+        <li><span class="obj-num">1</span>Use Claude Code as a persistent thinking partner that knows their business</li>
+        <li><span class="obj-num">2</span>Synthesize customer discovery interviews into structured, actionable insights</li>
+        <li><span class="obj-num">3</span>Build and iterate on a lean canvas with multi-perspective AI review</li>
+        <li><span class="obj-num">4</span>Create custom AI agents tuned to their specific industry and customer</li>
+        <li><span class="obj-num">5</span>Build a 90-day financial model and defend the underlying assumptions</li>
+        <li><span class="obj-num">6</span>Draft, refine, and deliver a 5-minute pitch with AI feedback</li>
+      </ul>
+    </div>
+
+    <!-- DELIVERABLES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-accent"></div>
+        <div class="section-title">What Builders Walk Away With</div>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-card">
+          <div class="deliverable-icon">📄</div>
+          <div class="deliverable-file">FOUNDER.md</div>
+          <div class="deliverable-desc">Permanent business context. Claude reads this every session — founders never re-explain their idea.</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-icon">🔍</div>
+          <div class="deliverable-file">customer-insights.md</div>
+          <div class="deliverable-desc">Synthesized findings from discovery interviews, structured for decisions.</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-icon">🟦</div>
+          <div class="deliverable-file">lean-canvas-final.md</div>
+          <div class="deliverable-desc">Complete, agent-reviewed lean canvas. Presentation-ready.</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-icon">💰</div>
+          <div class="deliverable-file">proforma-90-day.md</div>
+          <div class="deliverable-desc">90-day financial model built on documented, defensible assumptions.</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-icon">🎤</div>
+          <div class="deliverable-file">5-min-pitch-v2.md</div>
+          <div class="deliverable-desc">Founder Showcase-ready pitch, drafted and refined with three AI agents.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE TABLE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-accent"></div>
+        <div class="section-title">Course Modules</div>
+      </div>
+      <table class="module-table">
+        <thead>
+          <tr>
+            <th style="width:42px;">#</th>
+            <th>Module</th>
+            <th>Deliverable</th>
+            <th style="width:60px;">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" class="level-label">Level 0 — Setup</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">0.0</span></td>
+            <td>
+              <div class="module-title">Setup</div>
+              <div class="module-desc">Build FOUNDER.md. Orient to the course. Establish permanent business context.</div>
+            </td>
+            <td><span class="module-deliverable">FOUNDER.md</span></td>
+            <td class="module-time">20 min</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="level-label">Level 1 — Fundamentals</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.1</span></td>
+            <td>
+              <div class="module-title">First Session</div>
+              <div class="module-desc">Bring rough input, get structured output, save to a file. The core Claude Code loop.</div>
+            </td>
+            <td><span class="module-deliverable">notes/session-1-1.md</span></td>
+            <td class="module-time">25 min</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.2</span></td>
+            <td>
+              <div class="module-title">Visualizing Your Business</div>
+              <div class="module-desc">Set up VS Code or Obsidian alongside the terminal. Watch files take shape in real time.</div>
+            </td>
+            <td><span class="module-deliverable">—</span></td>
+            <td class="module-time">15 min</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.3</span></td>
+            <td>
+              <div class="module-title">Reading the Room</div>
+              <div class="module-desc">Synthesize customer discovery interviews into a structured insights document. Introduces @-mentions.</div>
+            </td>
+            <td><span class="module-deliverable">customer-insights.md</span></td>
+            <td class="module-time">30 min</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.4</span></td>
+            <td>
+              <div class="module-title">Three Voices</div>
+              <div class="module-desc">Run the lean canvas through the Investor, Customer, and Competitor agents simultaneously. The "holy sh*t" moment.</div>
+            </td>
+            <td><span class="module-deliverable">lean-canvas-v2.md</span></td>
+            <td class="module-time">25 min</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.5</span></td>
+            <td>
+              <div class="module-title">Building Your Team</div>
+              <div class="module-desc">Create a custom AI agent tuned to the founder's specific industry, customer, and blind spots.</div>
+            </td>
+            <td><span class="module-deliverable">[custom-agent].md</span></td>
+            <td class="module-time">20 min</td>
+          </tr>
+          <tr>
+            <td><span class="module-num">1.6</span></td>
+            <td>
+              <div class="module-title">Permanent Memory</div>
+              <div class="module-desc">Update FOUNDER.md with everything learned. Understand how project memory works across sessions.</div>
+            </td>
+            <td><span class="module-deliverable">FOUNDER.md (updated)</span></td>
+            <td class="module-time">20 min</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="level-label advanced">Level 2 — Advanced Builder Work</td>
+          </tr>
+          <tr class="advanced">
+            <td><span class="module-num">2.1</span></td>
+            <td>
+              <div class="module-title">The Lean Canvas</div>
+              <div class="module-desc">All 9 sections — with challenge and refinement at each step. UVP swap test. Three-agent review.</div>
+            </td>
+            <td><span class="module-deliverable">lean-canvas-final.md</span></td>
+            <td class="module-time">45 min</td>
+          </tr>
+          <tr class="advanced">
+            <td><span class="module-num">2.2</span></td>
+            <td>
+              <div class="module-title">The Numbers</div>
+              <div class="module-desc">90-day revenue projection, cost structure, gross margin, break-even. Every assumption documented.</div>
+            </td>
+            <td><span class="module-deliverable">proforma-90-day.md</span></td>
+            <td class="module-time">40 min</td>
+          </tr>
+          <tr class="advanced">
+            <td><span class="module-num">2.3</span></td>
+            <td>
+              <div class="module-title">The Pitch</div>
+              <div class="module-desc">7-section pitch structure. Hook, Problem, Solution, Proof, Business, Ask, Vision. Three-agent review. Two drafts.</div>
+            </td>
+            <td><span class="module-deliverable">5-min-pitch-v2.md</span></td>
+            <td class="module-time">45 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- AGENTS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-accent"></div>
+        <div class="section-title">The Three Built-In Agents</div>
+      </div>
+      <div class="agents-grid">
+        <div class="agent-card investor">
+          <div class="agent-emoji">💰</div>
+          <div class="agent-name">The Investor</div>
+          <div class="agent-role">Stress-tests the business model. Asks about unit economics, market size, and competitive moat. Makes founders answer the hard questions before they're in the room.</div>
+        </div>
+        <div class="agent-card customer">
+          <div class="agent-emoji">🧑</div>
+          <div class="agent-name">The Customer</div>
+          <div class="agent-role">Speaks from the end user's perspective. Tests whether the solution would actually change behavior — not just sound interesting. Asks "would I pay for this?"</div>
+        </div>
+        <div class="agent-card competitor">
+          <div class="agent-emoji">⚔️</div>
+          <div class="agent-name">The Competitor</div>
+          <div class="agent-role">Maps who already exists in the space. Names real companies. Identifies where the founder's position is exposed and where it's defensible.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>ILT Academy — Claude Code for Builders</strong>
+      <div class="footer-tagline">"Think Big. Start Small. Act Faster."</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-url">iltacademy.io/learn</div>
+      <div class="footer-sub">github.com/iltacademy/claude-code-for-builders</div>
+    </div>
+  </div>
+
+</body>
+</html>
